@@ -1,3 +1,4 @@
+import Button from '../Button';
 import InputText from '../InputText';
 import ListDropdown from '../ListDropdown';
 import './Form.css';
@@ -21,6 +22,7 @@ const Form = () => {
         <InputText label='Cargo' placeholder='Digite seu cargo' />
         <InputText label='Imagem' placeholder='Digite o endereço da imagem' />
         <ListDropdown label='Time' itens={times} />
+        <Button>Criar Card</Button>
       </form>
     </section>
   );
