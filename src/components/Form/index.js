@@ -18,10 +18,11 @@ const Form = () => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
+  const [time, setTime] = useState('');
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log('Form foi submetido => ', nome, cargo, imagem);
+    console.log('Form foi submetido => ', nome, cargo, imagem, time);
   };
 
   return (
@@ -48,7 +49,13 @@ const Form = () => {
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListDropdown obrigatorio={true} label='Time' itens={times} />
+        <ListDropdown
+          obrigatorio={true}
+          label='Time'
+          itens={times}
+          valor={time}
+          aoAlterado={(valor) => setTime(valor)}
+        />
         <Button>Criar Card</Button>
       </form>
     </section>
