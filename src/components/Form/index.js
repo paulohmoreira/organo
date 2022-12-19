@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Button from '../Button';
 import InputText from '../InputText';
 import ListDropdown from '../ListDropdown';
@@ -14,8 +15,13 @@ const Form = () => {
     'Inovação e Gestão',
   ];
 
+  const [nome, setNome] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [imagem, setImagem] = useState('');
+
   const aoSalvar = (event) => {
     event.preventDefault();
+    console.log('Form foi submetido => ', nome, cargo, imagem);
   };
 
   return (
@@ -26,13 +32,22 @@ const Form = () => {
           obrigatorio={true}
           label='Nome'
           placeholder='Digite seu nome'
+          valor={nome}
+          aoAlterado={(valor) => setNome(valor)}
         />
         <InputText
           obrigatorio={true}
           label='Cargo'
           placeholder='Digite seu cargo'
+          valor={cargo}
+          aoAlterado={(valor) => setCargo(valor)}
         />
-        <InputText label='Imagem' placeholder='Digite o endereço da imagem' />
+        <InputText
+          label='Imagem'
+          placeholder='Digite o endereço da imagem'
+          valor={imagem}
+          aoAlterado={(valor) => setImagem(valor)}
+        />
         <ListDropdown obrigatorio={true} label='Time' itens={times} />
         <Button>Criar Card</Button>
       </form>
